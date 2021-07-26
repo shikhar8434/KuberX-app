@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "339270422126",
+    "project_id": "kuberx-d3bd7",
+    "storage_bucket": "kuberx-d3bd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339270422126:android:50c1947e4c4ce95457e07f",
+        "android_client_info": {
+          "package_name": "com.spacebux.kuberx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339270422126-u16disgodklpqh2mksffh7kuika7pp3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8fAGbfLOa_7iCBK6q2DZHpfDJwaRIC5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339270422126-u16disgodklpqh2mksffh7kuika7pp3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
