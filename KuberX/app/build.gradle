@@ -4,6 +4,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file(projectDir.absolutePath + '/kuberx_key.jks')
+            storePassword 'kuberx121'
+            keyAlias 'key0'
+            keyPassword 'kuberx121'
+        }
+        release {
+            storeFile file(projectDir.absolutePath + '/kuberx_key.jks')
+            storePassword 'nexsapp123'
+            keyAlias 'key0'
+            keyPassword 'nexsapp123'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -31,11 +45,22 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.google.firebase:firebase-firestore:22.1.1'
-    testImplementation 'junit:junit:4.+'
+    implementation 'org.jetbrains:annotations:15.0'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:28.3.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-firestore'
+
+    //Razorpay
+    implementation 'com.razorpay:checkout:1.6.6'
+
 }

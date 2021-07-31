@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "339270422126-01rmv8ksn9jpomt5fosud2rkqt6glvlv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spacebux.kuberx",
+            "certificate_hash": "5e5fe73ca16828d2e082c094eb811e0d26c1ddb4"
+          }
+        },
+        {
           "client_id": "339270422126-u16disgodklpqh2mksffh7kuika7pp3q.apps.googleusercontent.com",
           "client_type": 3
         }
