@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KuberX">
         <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".AddWalletAmountActivity" />
         <activity android:name=".AddWalletActivity" />
         <activity android:name=".AuthenticationActivity">
             <intent-filter>
