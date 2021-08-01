@@ -6,7 +6,7 @@ public class Wallet implements Serializable {
     private String title;
     private Double target;
     private Double weeks;
-    private Double current;
+    private Double current = 0d;
     private String id;
 
     public Wallet() {
