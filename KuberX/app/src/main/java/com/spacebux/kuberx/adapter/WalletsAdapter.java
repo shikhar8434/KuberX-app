@@ -77,7 +77,7 @@ public class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.CustomVH
             title.setText(w.getTitle());
             target.setText("Target: " + w.getTarget());
             current.setText("Current Balance: " + (w.getCurrent() != null ? w.getCurrent() : "0"));
-            targetDate.setText(w.getWeeks() + " weeks");
+            targetDate.setText(w.getShifts() + " " + App.getShiftType(w.getShiftType()));
         }
     }
 }

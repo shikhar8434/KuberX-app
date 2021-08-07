@@ -88,7 +88,7 @@ public class WalletHome extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_walletHome_to_addWallet);
+                navController.navigate(R.id.action_walletHome_to_goalName);
             }
         });
     }

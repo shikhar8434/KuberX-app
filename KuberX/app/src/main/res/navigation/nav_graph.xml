@@ -21,11 +21,11 @@
         android:label="fragment_wallet_home"
         tools:layout="@layout/fragment_wallet_home" >
         <action
-            android:id="@+id/action_walletHome_to_addWallet"
-            app:destination="@id/addWallet" />
-        <action
             android:id="@+id/action_walletHome_to_enterWalletAmount"
             app:destination="@id/enterWalletAmount" />
+        <action
+            android:id="@+id/action_walletHome_to_goalName"
+            app:destination="@id/goalName" />
     </fragment>
     <fragment
         android:id="@+id/frag4"
@@ -38,16 +38,6 @@
         android:label="fragment_farg5"
         tools:layout="@layout/fragment_farg5" />
     <fragment
-        android:id="@+id/addWallet"
-        android:name="com.spacebux.kuberx.fragment.AddWallet"
-        android:label="fragment_add_wallet"
-        tools:layout="@layout/fragment_add_wallet" >
-        <action
-            android:id="@+id/action_addWallet_to_walletHome"
-            app:destination="@id/walletHome"
-            app:popUpTo="@id/walletHome" />
-    </fragment>
-    <fragment
         android:id="@+id/enterWalletAmount"
         android:name="com.spacebux.kuberx.fragment.EnterWalletAmount"
         android:label="fragment_enter_wallet_amount"
@@ -55,5 +45,41 @@
         <action
             android:id="@+id/action_enterWalletAmount_to_walletHome"
             app:destination="@id/walletHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalName"
+        android:name="com.spacebux.kuberx.fragment.GoalName"
+        android:label="fragment_goal_name"
+        tools:layout="@layout/fragment_goal_name" >
+        <action
+            android:id="@+id/action_goalName_to_shiftType"
+            app:destination="@id/shiftType" />
+    </fragment>
+    <fragment
+        android:id="@+id/targetAmount"
+        android:name="com.spacebux.kuberx.fragment.TargetAmount"
+        android:label="fragment_target_amount"
+        tools:layout="@layout/fragment_target_amount" >
+        <action
+            android:id="@+id/action_targetAmount_to_deadline"
+            app:destination="@id/deadline" />
+    </fragment>
+    <fragment
+        android:id="@+id/deadline"
+        android:name="com.spacebux.kuberx.fragment.Deadline"
+        android:label="fragment_deadline"
+        tools:layout="@layout/fragment_deadline" >
+        <action
+            android:id="@+id/action_deadline_to_walletHome"
+            app:destination="@id/walletHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/shiftType"
+        android:name="com.spacebux.kuberx.fragment.ShiftType"
+        android:label="fragment_shift_type"
+        tools:layout="@layout/fragment_shift_type" >
+        <action
+            android:id="@+id/action_shiftType_to_targetAmount"
+            app:destination="@id/targetAmount" />
     </fragment>
 </navigation>

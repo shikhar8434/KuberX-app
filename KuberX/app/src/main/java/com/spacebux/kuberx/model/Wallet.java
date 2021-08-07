@@ -6,7 +6,8 @@ import android.os.Parcelable;
 public class Wallet implements Parcelable {
     private String title;
     private Double target;
-    private Double weeks;
+    private Double shifts;
+    private Integer shiftType;
     private Double current = 0d;
     private String id;
 
@@ -21,9 +22,9 @@ public class Wallet implements Parcelable {
             target = in.readDouble();
         }
         if (in.readByte() == 0) {
-            weeks = null;
+            shifts = null;
         } else {
-            weeks = in.readDouble();
+            shifts = in.readDouble();
         }
         if (in.readByte() == 0) {
             current = null;
@@ -44,6 +45,8 @@ public class Wallet implements Parcelable {
             return new Wallet[size];
         }
     };
+
+
 
     public String getId() {
         return id;
@@ -77,12 +80,20 @@ public class Wallet implements Parcelable {
         this.target = target;
     }
 
-    public Double getWeeks() {
-        return weeks;
+    public Double getShifts() {
+        return shifts;
     }
 
-    public void setWeeks(Double weeks) {
-        this.weeks = weeks;
+    public void setShifts(Double shifts) {
+        this.shifts = shifts;
+    }
+
+    public Integer getShiftType() {
+        return shiftType;
+    }
+
+    public void setShiftType(Integer shiftType) {
+        this.shiftType = shiftType;
     }
 
     @Override
@@ -99,11 +110,11 @@ public class Wallet implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeDouble(target);
         }
-        if (weeks == null) {
+        if (shifts == null) {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
-            dest.writeDouble(weeks);
+            dest.writeDouble(shifts);
         }
         if (current == null) {
             dest.writeByte((byte) 0);

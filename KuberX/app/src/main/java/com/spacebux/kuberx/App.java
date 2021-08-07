@@ -13,6 +13,16 @@ public class App extends Application {
     public static final String WALLET_ID = "wallet_id";
     public static final String AMOUNT = "amount";
     public static final String PAYMENT_SUCCESS = "payment_success";
+    public static final int WEEKLY = 7;
+    public static final int MONTHLY = 30;
+    public static final String WEEKS = "weeks";
+    public static final String MONTHS = "months";
+
+    public static String getShiftType(int n) {
+        if (n == WEEKLY)
+            return WEEKS;
+        return MONTHS;
+    }
 
     public static void showToast(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
