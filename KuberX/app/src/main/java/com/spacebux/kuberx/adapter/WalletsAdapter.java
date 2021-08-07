@@ -1,7 +1,6 @@
 package com.spacebux.kuberx.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.spacebux.kuberx.App;
-import com.spacebux.kuberx.AddWalletAmountActivity;
 import com.spacebux.kuberx.R;
 import com.spacebux.kuberx.model.Wallet;
 
@@ -25,9 +24,11 @@ public class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.CustomVH
 
     private Context context;
     private List<Wallet> wallets;
+    private NavController navController;
 
-    public WalletsAdapter(Context context, List<Wallet> wallets) {
+    public WalletsAdapter(Context context, NavController navController, List<Wallet> wallets) {
         this.context = context;
+        this.navController = navController;
         this.wallets = wallets;
     }
 
@@ -65,9 +66,9 @@ public class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.CustomVH
             load.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, AddWalletAmountActivity.class);
-                    intent.putExtra(App.WALLET, wallets.get(getAdapterPosition()));
-                    context.startActivity(intent);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable(App.WALLET, wallets.get(getAdapterPosition()));
+                    navController.navigate(R.id.action_walletHome_to_enterWalletAmount, bundle);
                 }
             });
         }

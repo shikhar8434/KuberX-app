@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frag1">
+
+    <fragment
+        android:id="@+id/frag1"
+        android:name="com.spacebux.kuberx.fragment.frag1"
+        android:label="fragment_frag1"
+        tools:layout="@layout/fragment_frag1" />
+    <fragment
+        android:id="@+id/frag2"
+        android:name="com.spacebux.kuberx.fragment.frag2"
+        android:label="fragment_frag2"
+        tools:layout="@layout/fragment_frag2" />
+    <fragment
+        android:id="@+id/walletHome"
+        android:name="com.spacebux.kuberx.fragment.WalletHome"
+        android:label="fragment_wallet_home"
+        tools:layout="@layout/fragment_wallet_home" >
+        <action
+            android:id="@+id/action_walletHome_to_addWallet"
+            app:destination="@id/addWallet" />
+        <action
+            android:id="@+id/action_walletHome_to_enterWalletAmount"
+            app:destination="@id/enterWalletAmount" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag4"
+        android:name="com.spacebux.kuberx.fragment.frag4"
+        android:label="fragment_frag4"
+        tools:layout="@layout/fragment_frag4" />
+    <fragment
+        android:id="@+id/frag5"
+        android:name="com.spacebux.kuberx.fragment.frag5"
+        android:label="fragment_farg5"
+        tools:layout="@layout/fragment_farg5" />
+    <fragment
+        android:id="@+id/addWallet"
+        android:name="com.spacebux.kuberx.fragment.AddWallet"
+        android:label="fragment_add_wallet"
+        tools:layout="@layout/fragment_add_wallet" >
+        <action
+            android:id="@+id/action_addWallet_to_walletHome"
+            app:destination="@id/walletHome"
+            app:popUpTo="@id/walletHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterWalletAmount"
+        android:name="com.spacebux.kuberx.fragment.EnterWalletAmount"
+        android:label="fragment_enter_wallet_amount"
+        tools:layout="@layout/fragment_enter_wallet_amount" >
+        <action
+            android:id="@+id/action_enterWalletAmount_to_walletHome"
+            app:destination="@id/walletHome" />
+    </fragment>
+</navigation>

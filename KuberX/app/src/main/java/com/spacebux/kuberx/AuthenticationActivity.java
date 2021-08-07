@@ -84,7 +84,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(context, MainActivity.class));
+                            startActivity(new Intent(context, HomeActivity.class));
                             finish();
                         } else {
                             Log.w(App.TAG, "signInWithCredential:failure", task.getException());
@@ -114,7 +114,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(context, MainActivity.class));
+            startActivity(new Intent(context, HomeActivity.class));
             finish();
         }
     }

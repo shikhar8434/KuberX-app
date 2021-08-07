@@ -1,4 +1,4 @@
-package com.spacebux.kuberx;
+package com.spacebux.kuberx.fragment;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.spacebux.kuberx.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link frag4#newInstance} factory method to
+ * Use the {@link frag1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class frag4 extends Fragment {
+public class frag1 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class frag4 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public frag4() {
+    public frag1() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class frag4 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment frag4.
+     * @return A new instance of fragment frag1.
      */
     // TODO: Rename and change types and number of parameters
-    public static frag4 newInstance(String param1, String param2) {
-        frag4 fragment = new frag4();
+    public static frag1 newInstance(String param1, String param2) {
+        frag1 fragment = new frag1();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class frag4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag4, container, false);
+        return inflater.inflate(R.layout.fragment_frag1, container, false);
     }
 }

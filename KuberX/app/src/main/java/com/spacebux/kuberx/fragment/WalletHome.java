@@ -1,19 +1,24 @@
-package com.spacebux.kuberx;
+package com.spacebux.kuberx.fragment;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,80 +30,67 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.razorpay.Checkout;
-import com.razorpay.PaymentData;
-import com.razorpay.PaymentResultListener;
-import com.razorpay.PaymentResultWithDataListener;
+import com.spacebux.kuberx.App;
+import com.spacebux.kuberx.R;
 import com.spacebux.kuberx.adapter.WalletsAdapter;
 import com.spacebux.kuberx.model.Wallet;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class WalletHome extends Fragment {
+    public WalletHome() {
+        // Required empty public constructor
+    }
 
     private Context context;
     private Button add;
     private RecyclerView recyclerView;
     private WalletsAdapter adapter;
+    private NavController navController;
     private final List<Wallet> wallets = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setReferences();
-        configure();
-        fetchCurrentWallets();
     }
 
-    private void setReferences() {
-        context = this;
-        add = findViewById(R.id.add);
-        adapter = new WalletsAdapter(context, wallets);
-        recyclerView = findViewById(R.id.recycler);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_wallet_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setReferences(view);
+        configure();
+        fetchCurrentWallets();
+        if (getArguments() != null) {
+            createWallet(getArguments().getParcelable(App.WALLET));
+        }
+    }
+
+    private void setReferences(View view) {
+        context = getContext();
+        add = view.findViewById(R.id.add);
+        navController = Navigation.findNavController(view);
+        adapter = new WalletsAdapter(context, navController, wallets);
+        recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
     }
 
     private void configure() {
-        ActivityResultLauncher<Void> launcher = registerForActivityResult(new Contract(), new ActivityResultCallback<Wallet>() {
-            @Override
-            public void onActivityResult(Wallet result) {
-                if (result == null) {
-                    Log.i(App.TAG, "null wallet");
-                    return;
-                }
-                createWallet(result);
-            }
-        });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launcher.launch(null);
+                navController.navigate(R.id.action_walletHome_to_addWallet);
             }
         });
-    }
-
-    private class Contract extends ActivityResultContract<Void, Wallet> {
-
-        @NonNull
-        @NotNull
-        @Override
-        public Intent createIntent(@NonNull @NotNull Context context, Void input) {
-            return new Intent(context, AddWalletActivity.class);
-        }
-
-        @Override
-        public Wallet parseResult(int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent intent) {
-            if (resultCode != RESULT_OK || intent == null) {
-                return null;
-            }
-            return (Wallet) intent.getSerializableExtra(App.WALLET);
-        }
     }
 
     private void createWallet(Wallet wallet) {
