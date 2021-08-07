@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.CreatePost"
+    android:background="#000044">
+
+
+    <ImageView
+        android:id="@+id/post_back_btn"
+        android:layout_width="64dp"
+        android:layout_height="46dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_search"
+        tools:ignore="ImageContrastCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/post_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:backgroundTint="#ffffff"
+            android:text="Post"
+            android:textColor="#000044"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/poll_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="#6B92AC"
+            android:text="Poll"/>
+
+        <Button
+            android:id="@+id/crowd_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="#6B92AC"
+            android:text="Crowd Src."/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="189dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginStart="35dp"
+        android:text="Create Post"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="143dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="35dp"
+        android:text="Title"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/title_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/slider_background"
+        android:backgroundTint="#244E71"
+        android:ems="10"
+        android:hint="Example:- Home"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#6B92AC"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="143dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="35dp"
+        android:text="Description"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/description_editText"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/slider_background"
+        android:backgroundTint="#244E71"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Describe your thoughts..."
+        android:inputType="textMultiLine"
+        android:padding="5dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#6B92AC"/>
+
+    <Button
+        android:id="@+id/add_image_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginRight="35dp"
+        android:backgroundTint="#6B92AC"
+        android:text="+ Add Image" />
+
+    <Button
+        android:id="@+id/post_btn"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="650dp"
+        android:backgroundTint="#ffffff"
+        android:text="Post"
+        android:textColor="#000044" />
+
+</FrameLayout>

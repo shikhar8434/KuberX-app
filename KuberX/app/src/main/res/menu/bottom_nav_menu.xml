@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/memories"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Memories" />
+        android:id="@+id/posts"
+        android:icon="@drawable/ic_home"
+        android:title="@string/posts" />
     <item
         android:id="@+id/wallet"
         android:icon="@drawable/ic_baseline_account_balance_wallet_24"
