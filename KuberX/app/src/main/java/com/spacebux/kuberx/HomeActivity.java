@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -18,13 +19,14 @@ public class HomeActivity extends AppCompatActivity {
     private NavController navController;
     private FloatingActionButton addFab;
     public static Context contextOfApplication;
+    BottomAppBar bottomAppBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         navController = Navigation.findNavController(this, R.id.fragmentContainerView);
-        navController.navigate(R.id.frag1);
+        navController.navigate(R.id.frag_posts);
         BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setBackground(null);
@@ -33,12 +35,12 @@ public class HomeActivity extends AppCompatActivity {
         addFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navController.navigate(R.id.frag2);
+                navController.navigate(R.id.frag_create_post);
             }
         });
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -46,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.posts:
                     item.setIcon(R.drawable.ic_home);
-                    navController.navigate(R.id.frag1);
+                    navController.navigate(R.id.frag_posts);
                     return true;
                 case R.id.wallet:
                     item.setIcon(R.drawable.ic_baseline_account_balance_wallet_24);
@@ -54,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.fab:
                     item.setIcon(R.drawable.ic_launcher_background);
-                    navController.navigate(R.id.frag2);
+                    navController.navigate(R.id.frag_create_post);
                     return true;
                 case R.id.memories2:
                     item.setIcon(R.drawable.ic_launcher_background);
@@ -68,6 +70,8 @@ public class HomeActivity extends AppCompatActivity {
             }
             return false;
         }
+
+
     };
 
     @Override
@@ -85,5 +89,11 @@ public class HomeActivity extends AppCompatActivity {
     public static Context getContextOfApplication() {
         return contextOfApplication;
     }
+
+    public BottomAppBar getNav() {
+        return bottomAppBar;
+    }
+
 }
+
 

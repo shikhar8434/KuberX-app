@@ -22,9 +22,9 @@ import java.util.List;
 
 public class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.CustomVH> {
 
-    private Context context;
-    private List<Wallet> wallets;
-    private NavController navController;
+    private final Context context;
+    private final List<Wallet> wallets;
+    private final NavController navController;
 
     public WalletsAdapter(Context context, NavController navController, List<Wallet> wallets) {
         this.context = context;
@@ -52,8 +52,12 @@ public class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.CustomVH
 
     public class CustomVH extends RecyclerView.ViewHolder {
 
-        private TextView title, target, targetDate, current;
-        private Button pay, load;
+        private final TextView title;
+        private final TextView target;
+        private final TextView targetDate;
+        private final TextView current;
+        private final Button pay;
+        private final Button load;
 
         public CustomVH(@NonNull @NotNull View itemView) {
             super(itemView);

@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/frag1">
+    app:startDestination="@id/frag_posts">
 
     <fragment
-        android:id="@+id/frag1"
+        android:id="@+id/frag_posts"
         android:name="com.spacebux.kuberx.fragment.Posts"
-        android:label="fragment_frag1"
+        android:label="fragment_posts"
         tools:layout="@layout/fragment_posts" />
     <fragment
-        android:id="@+id/frag2"
+        android:id="@+id/frag_create_post"
         android:name="com.spacebux.kuberx.fragment.CreatePost"
-        android:label="fragment_frag2"
+        android:label="fragment_create_posts"
         tools:layout="@layout/fragment_create_post" />
     <fragment
         android:id="@+id/walletHome"
