@@ -1,46 +1,32 @@
 package com.spacebux.kuberx;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationBarView;
-import com.spacebux.kuberx.fragment.frag5;
-import com.spacebux.kuberx.fragment.frag1;
-import com.spacebux.kuberx.fragment.frag2;
-import com.spacebux.kuberx.fragment.WalletHome;
-import com.spacebux.kuberx.fragment.frag4;
-
-import org.jetbrains.annotations.NotNull;
 
 public class HomeActivity extends AppCompatActivity {
     private NavController navController;
     private FloatingActionButton addFab;
     public static Context contextOfApplication;
-    BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         navController = Navigation.findNavController(this, R.id.fragmentContainerView);
-        navigation = findViewById(R.id.bottomNavigationView);
         navController.navigate(R.id.frag1);
-        navigation.setOnItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setBackground(null);
         contextOfApplication = getApplicationContext();
         addFab = findViewById(R.id.fab);
@@ -52,12 +38,13 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private final NavigationBarView.OnItemSelectedListener mOnNavigationItemSelectedListener
-            = new NavigationBarView.OnItemSelectedListener() {
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.memories:
+                case R.id.posts:
                     item.setIcon(R.drawable.ic_launcher_background);
                     navController.navigate(R.id.frag1);
                     return true;

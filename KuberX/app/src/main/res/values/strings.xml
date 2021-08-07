@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="wallet">Wallet</string>
     <string name="add_wallet">Add Wallet</string>
+    <string name="posts">Posts</string>
     <string name="next">Next</string>
     <string name="type_name">Type name</string>
     <string name="type_amount">Type amount</string>
