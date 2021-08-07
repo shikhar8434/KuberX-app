@@ -1,14 +1,21 @@
 package com.spacebux.kuberx.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.spacebux.kuberx.R;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +62,7 @@ public class CreatePost extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -63,19 +71,30 @@ public class CreatePost extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create_post, container, false);
     }
-    
+
     @SuppressLint("RestrictedApi")
     @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setShowHideAnimationEnabled(false);
+
+
+        BottomAppBar navBar = getActivity().findViewById(R.id.bottomAppBar);
+        navBar.setVisibility(View.GONE);
+        FloatingActionButton floatingActionButton = getActivity().findViewById(R.id.fab);
+        floatingActionButton.setVisibility(View.GONE);
     }
 
     @Override
     public void onStop() {
         super.onStop();
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+        BottomAppBar navBar = getActivity().findViewById(R.id.bottomAppBar);
+        navBar.setVisibility(View.VISIBLE);
+        FloatingActionButton floatingActionButton = getActivity().findViewById(R.id.fab);
+        floatingActionButton.setVisibility(View.VISIBLE);
 
     }
 }
