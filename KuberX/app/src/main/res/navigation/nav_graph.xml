@@ -14,7 +14,11 @@
         android:id="@+id/frag_create_post"
         android:name="com.spacebux.kuberx.fragment.CreatePost"
         android:label="fragment_create_posts"
-        tools:layout="@layout/fragment_create_post" />
+        tools:layout="@layout/fragment_create_post" >
+        <action
+            android:id="@+id/action_createPost_to_posts"
+            app:destination="@id/frag_posts" />
+    </fragment>
     <fragment
         android:id="@+id/walletHome"
         android:name="com.spacebux.kuberx.fragment.WalletHome"

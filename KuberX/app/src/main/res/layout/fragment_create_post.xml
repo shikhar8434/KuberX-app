@@ -132,7 +132,8 @@
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
         android:backgroundTint="#ffffff"
         android:text="Post"
         android:textColor="#000044" />
