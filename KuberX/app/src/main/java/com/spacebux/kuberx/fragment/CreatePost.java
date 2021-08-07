@@ -79,6 +79,7 @@ public class CreatePost extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setShowHideAnimationEnabled(false);
 
+
         BottomAppBar navBar = getActivity().findViewById(R.id.bottomAppBar);
         navBar.setVisibility(View.GONE);
         FloatingActionButton floatingActionButton = getActivity().findViewById(R.id.fab);
@@ -96,6 +97,4 @@ public class CreatePost extends Fragment {
         floatingActionButton.setVisibility(View.VISIBLE);
 
     }
-
-
 }
