@@ -63,4 +63,19 @@ public class CreatePost extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create_post, container, false);
     }
+    
+    @SuppressLint("RestrictedApi")
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setShowHideAnimationEnabled(false);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+    }
 }
