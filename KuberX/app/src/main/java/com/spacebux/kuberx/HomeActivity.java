@@ -2,8 +2,6 @@ package com.spacebux.kuberx;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -15,11 +13,6 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.spacebux.kuberx.fragment.frag5;
-import com.spacebux.kuberx.fragment.frag1;
-import com.spacebux.kuberx.fragment.frag2;
-import com.spacebux.kuberx.fragment.WalletHome;
-import com.spacebux.kuberx.fragment.frag4;
 
 public class HomeActivity extends AppCompatActivity {
     private NavController navController;
@@ -51,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.memories:
+                case R.id.posts:
                     item.setIcon(R.drawable.ic_launcher_background);
                     navController.navigate(R.id.frag1);
                     return true;
