@@ -36,6 +36,8 @@
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:background="#244E71"
+            app:itemIconTint="@color/bottom_nav_icon_color"
+            app:itemTextColor="@color/bottom_nav_icon_color"
             app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
             app:menu="@menu/bottom_nav_menu" />
 

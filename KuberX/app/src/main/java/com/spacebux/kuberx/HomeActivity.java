@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.posts:
-                    item.setIcon(R.drawable.ic_launcher_background);
+                    item.setIcon(R.drawable.ic_home);
                     navController.navigate(R.id.frag1);
                     return true;
                 case R.id.wallet:
